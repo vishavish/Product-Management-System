@@ -1,0 +1,11 @@
+﻿@model PMS.WebUI.Models.ProductViewModel.ProductModel
+@{ 
+    ViewData["Title"] = "Product Detail";
+}
+
+<div class="container text-center">
+    <div class="jumbotron">
+        <h3 class="display-4">@Model.Name</h3>
+        <p class="lead">@Model.Description - <span class="font-weight-bold">$@Model.Price</span></p>
+    </div>
+</div>

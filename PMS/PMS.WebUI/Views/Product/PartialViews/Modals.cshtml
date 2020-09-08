@@ -1,0 +1,100 @@
+﻿@model PMS.WebUI.Models.ProductViewModel.ProductModel
+
+<div class="modal fade" id="addNewProductModal" tabindex="-1" role="dialog" aria-labelledby="addNewProductModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add New Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    @using (Html.BeginForm("Create", "Product", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <!---
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="taxableCheck" />
+                                    <label class="form-check-label font-weight-bold" for="taxableCheck">Is this taxable?</label>
+                                </div>
+                             -->
+                            <div class="form-check">
+                                @Html.CheckBoxFor(m => m.IsTaxable, new { @class = "form-check-input" })
+                                @Html.Label("", "Is this product taxable?", new { @class = "form-check-label font-weight-bold" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!---
+                                <label class="font-weight-bold" for="productName">Name</label>
+                                <input type="text" class="form-control" name="productName" id="prductName" />
+                            -->
+
+                            @Html.LabelFor(m => m.Name, new { @class = "font-weight-bold" })
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <!---
+                                <label class="col-form-label font-weight-bold" for="productDesc">Description</label>
+                                input type="text" class="form-control" name="productDesc" id="productDesc" />
+                            -->
+                            @Html.LabelFor(m => m.Description, new { @class = "font-weight-bold" })
+                            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <!---
+                                <label class="font-weight-bold" for="productPrice">Price</label>
+                                <input type="text" class="form-control" name="productPrice" id="productPrice" />
+                            -->
+                            @Html.LabelFor(m => m.Price, new { @class = "font-weight-bold" })
+                            @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group ml-auto">
+                            <button type="submit" class="btn btn-primary btn-sm">Save Product</button>
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="shipmentModal" tabindex="-1" role="dialog" aria-labelledby="shipmentModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Receive Shipment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    @using (Html.BeginForm("UpdateUnitsAvailable", "Inventory", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="productSelect">Choose Product</label>
+                            <select class="form-control" id="productSelect">
+                                <option>Item 1</option>
+                                <option>Item 2</option>
+                                <option>Item 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="qtyText">Quantity Received</label>
+                            <input type="text" name="qtyText" id="qtyText" class="form-control" />
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary btn-sm" type="submit">Save Received Shipment</button>
+                            <button class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

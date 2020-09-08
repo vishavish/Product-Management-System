@@ -1,0 +1,58 @@
+﻿@model PMS.WebUI.Models.ProductViewModel.ProductIndexViewModel
+@{
+    ViewData["Title"] = "Products List";
+}
+
+<div class="container">
+    <div class="pb-3">
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addNewProductModal">Add New Item</button>
+        <button class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#shipmentModal">Receive Shipment</button>
+    </div>
+    <table class="table table-light table-responsive-md table-hover text-center">
+        <caption>List of products</caption>
+        <thead class="thead-light">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Taxable</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.ProductViewModels)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>@product.Price</td>
+                    <td>
+                        @{ var status = @product.IsTaxable ? "Yes" : "No"; }
+                        @status
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <div class="mr-3">
+                                <a class="btn btn-primary btn-sm" asp-controller="Product" asp-action="Detail" asp-route-id="@product.Id">View</a>
+                            </div>
+                            <div class="">
+                                @using (Html.BeginForm("ArchiveProduct", "Product", FormMethod.Post))
+                                {
+                                    @*<input type="hidden" value="@product.Id" />*@
+
+                                    @*@Html.Hidden("productId", product.Id)*@
+
+                                    @Html.HiddenFor(m => m.ProductViewModels.FirstOrDefault(p => p.Id == product.Id).Id)
+
+                                    <button type="submit" class="btn btn-danger btn-sm">Archive</button>
+                                }
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<partial name="~/Views/Product/PartialViews/Modals.cshtml" model="null" />

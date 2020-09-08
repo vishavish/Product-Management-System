@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.WebUI", "PMS.WebUI\PMS.WebUI.csproj", "{F67DFDE9-C34E-4E75-B023-2FC8067283F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.Models", "PMS.Models\PMS.Models.csproj", "{FBF7C4AA-A899-4E61-8AF6-EEB30952E11F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.Data", "PMS.Data\PMS.Data.csproj", "{79836812-DF93-4846-A627-DA086B33C064}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F67DFDE9-C34E-4E75-B023-2FC8067283F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F67DFDE9-C34E-4E75-B023-2FC8067283F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F67DFDE9-C34E-4E75-B023-2FC8067283F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F67DFDE9-C34E-4E75-B023-2FC8067283F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBF7C4AA-A899-4E61-8AF6-EEB30952E11F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBF7C4AA-A899-4E61-8AF6-EEB30952E11F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBF7C4AA-A899-4E61-8AF6-EEB30952E11F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBF7C4AA-A899-4E61-8AF6-EEB30952E11F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79836812-DF93-4846-A627-DA086B33C064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79836812-DF93-4846-A627-DA086B33C064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79836812-DF93-4846-A627-DA086B33C064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79836812-DF93-4846-A627-DA086B33C064}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2AB7A4B8-4756-45B8-A990-411F9AB409B6}
+	EndGlobalSection
+EndGlobal

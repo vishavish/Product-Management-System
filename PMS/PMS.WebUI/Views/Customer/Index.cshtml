@@ -1,0 +1,54 @@
+﻿@model List<PMS.WebUI.Models.CustomerViewModel.CustomerModel>
+@{ 
+    ViewData["Title"] = "Customers";
+}
+
+<div class="container">
+    <div class="pt-3">
+        <h3>Manage Customers</h3>
+    </div>
+    <hr />
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCustomerModal">Add Customer</button>
+    <section class="mt-3">
+        <table class="table table-hover table-light table-responsive-md text-center">
+            <thead class="thead-light">
+                <tr>
+                    <th>Customer</th>
+                    <th>Address</th>
+                    <th>State</th>
+                    <th>Since</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var customer in Model)
+                {
+                    <tr>
+                        <td>
+                            @customer.FirstName @customer.LastName
+                        </td>
+                        <td>
+                            @customer.PrimaryAddress.AddressLine1 @customer.PrimaryAddress.AddressLine2
+                        </td>
+                        <td>
+                            @customer.PrimaryAddress.Region
+                        </td>
+                        <td>
+                            @customer.CreatedOn.ToString("yyyy-MM-dd")
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("DeleteCustomer", "Customer", FormMethod.Post))
+                            {
+                                @Html.HiddenFor(m => m.FirstOrDefault(c => c.Id == customer.Id).Id)
+
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</div>
+
+<partial name="~/Views/Customer/PartialViews/Modals.cshtml" model="null" />
