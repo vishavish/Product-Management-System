@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using PMS.Data.Repository.IRepository;
 using PMS.WebUI.Mapper;
+using PMS.WebUI.Models.ProductInventoryViewModel;
 using PMS.WebUI.Models.ProductViewModel;
 using System.Linq;
 
@@ -24,9 +26,24 @@ namespace PMS.WebUI.Controllers
             var products = _productService.GetAllProducts()
                 .Select(ProductMapper.SerializeProductModel);
 
+            var selectListItem = _productService.GetAllProducts()
+                .Select(item => new SelectListItem
+                {
+                    Value = item.Id.ToString(),
+                    Text = item.Name
+                });
             var indexViewModels = new ProductIndexViewModel
             {
-                ProductViewModels = products
+                ProductViewModels = products,
+                ShipmentModal = new ShipmentModel
+                {
+                    ProductsListItem = products
+                        .Select(item => new SelectListItem
+                        {
+                            Text = item.Name,
+                            Value = item.Id.ToString()
+                        })
+                }
             };
 
             return View(indexViewModels);

@@ -50,8 +50,8 @@ namespace PMS.Data.Repository
         public bool UpdateUnitsAvailable(int id, int adjustment)
         {
             if (!ProductInventoryExists(id)) throw new NotFoundException(nameof(ProductInventory), id);
-            
-            var productInventory = _db.ProductInventories.Find(id);
+
+            var productInventory = GetById(id);
             
             productInventory.QuantityOnHand += adjustment;
             CreateSnapshot(productInventory);
@@ -80,7 +80,9 @@ namespace PMS.Data.Repository
 
         private bool ProductInventoryExists(int id)
         {
-            return _db.ProductInventories.Any(pi => pi.Id == id);
+            return _db.ProductInventories
+                .Include(pi => pi.Product)
+                .Any(pi => pi.Product.Id == id);
         }
     }
 }

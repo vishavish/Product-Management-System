@@ -1,0 +1,39 @@
+﻿@model PMS.WebUI.Models.ProductInventoryViewModel.ShipmentModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="modal fade" id="shipmentModal" tabindex="-1" role="dialog" aria-labelledby="shipmentModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Receive Shipment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    @using (Html.BeginForm("UpdateUnitsAvailable", "Inventory", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="productSelect">Choose Product</label>
+                            <select asp-for="Id" asp-items="Model.ProductsListItem"  class="form-control">
+                                <option>Choose a product</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="qtyText">Quantity Received</label>
+                            <input asp-for="Adjustment" class="form-control" />
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary btn-sm" type="submit">Save Received Shipment</button>
+                            <button class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

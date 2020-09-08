@@ -32,7 +32,7 @@ namespace PMS.WebUI.Controllers
         {
             var res = _inventoryService.UpdateUnitsAvailable(shipmentModel.Id, shipmentModel.Adjustment);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), "Product");
         }
 
         private void GetCurrentInventory()
