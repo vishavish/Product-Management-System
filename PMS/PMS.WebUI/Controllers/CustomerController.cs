@@ -6,7 +6,6 @@ using PMS.WebUI.Models.CustomerViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PMS.WebUI.Controllers
 {
@@ -55,8 +54,8 @@ namespace PMS.WebUI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        // [HttpPost]
+        // [ValidateAntiForgeryToken]
         public IActionResult UpdateCustomer()
         {
             return View();

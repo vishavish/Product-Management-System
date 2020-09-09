@@ -11,50 +11,30 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    @using (Html.BeginForm("Create", "Product", FormMethod.Post))
-                    {
+                    <form asp-controller="Product" asp-action="Create" method="post">
                         <div class="form-group">
-                            <!---
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="taxableCheck" />
-                                    <label class="form-check-label font-weight-bold" for="taxableCheck">Is this taxable?</label>
-                                </div>
-                             -->
                             <div class="form-check">
-                                @Html.CheckBoxFor(m => m.IsTaxable, new { @class = "form-check-input" })
-                                @Html.Label("", "Is this product taxable?", new { @class = "form-check-label font-weight-bold" })
+                                <input asp-for="IsTaxable" class="form-check-input" />
+                                <label asp-for="IsTaxable" class="form-check-label font-weight-bold">Is this taxable?</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <!---
-                                <label class="font-weight-bold" for="productName">Name</label>
-                                <input type="text" class="form-control" name="productName" id="prductName" />
-                            -->
-
-                            @Html.LabelFor(m => m.Name, new { @class = "font-weight-bold" })
-                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                            <input asp-for="Name" class="form-control" />
+                            <label asp-for="Name" class="font-weight-bold">Name</label>
                         </div>
                         <div class="form-group">
-                            <!---
-                                <label class="col-form-label font-weight-bold" for="productDesc">Description</label>
-                                input type="text" class="form-control" name="productDesc" id="productDesc" />
-                            -->
-                            @Html.LabelFor(m => m.Description, new { @class = "font-weight-bold" })
-                            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                            <label asp-for="Description" class="font-weight-bold">Description</label>
+                            <input asp-for="Description" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <!---
-                                <label class="font-weight-bold" for="productPrice">Price</label>
-                                <input type="text" class="form-control" name="productPrice" id="productPrice" />
-                            -->
-                            @Html.LabelFor(m => m.Price, new { @class = "font-weight-bold" })
-                            @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+                            <label asp-for="Price" class="font-weight-bold">Price</label>
+                            <input asp-for="Price" class="form-control" />
                         </div>
-                        <div class="form-group ml-auto">
+                        <div class="modal-footer">
                             <button type="submit" class="btn btn-primary btn-sm">Save Product</button>
                             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                         </div>
-                    }
+                    </form>
                 </div>
             </div>
         </div>

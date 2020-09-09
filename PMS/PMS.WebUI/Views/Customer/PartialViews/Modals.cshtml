@@ -1,7 +1,4 @@
 ﻿@model PMS.WebUI.Models.CustomerViewModel.CustomerModel
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
 
 <div class="modal fade" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="addCustomerModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -14,61 +11,60 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    @using (Html.BeginForm("CreateCustomer", "Customer", FormMethod.Post))
-                    {
+                    <form asp-controller="Customer" asp-action="CreateCustomer" method="post">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.FirstName)
-                                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                                    <label asp-for="FirstName"></label>
+                                    <input asp-for="FirstName" class="form-control" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.LastName)
-                                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                                    <label asp-for="LastName"></label>
+                                    <input asp-for="LastName" class="form-control" />
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.PrimaryAddress.AddressLine1)
-                                    @Html.TextBoxFor(m => m.PrimaryAddress.AddressLine1, new { @class = "form-control" })
+                                    <label asp-for="PrimaryAddress.AddressLine1"></label>
+                                    <input asp-for="PrimaryAddress.AddressLine1" class="form-control" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.PrimaryAddress.AddressLine2)
-                                    @Html.TextBoxFor(m => m.PrimaryAddress.AddressLine2, new { @class = "form-control" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.PrimaryAddress.City)
-                                    @Html.TextBoxFor(m => m.PrimaryAddress.City, new { @class = "form-control" })
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.PrimaryAddress.Region)
-                                    @Html.TextBoxFor(m => m.PrimaryAddress.Region, new { @class = "form-control" })
+                                    <label asp-for="PrimaryAddress.AddressLine2"></label>
+                                    <input asp-for="PrimaryAddress.AddressLine2" class="form-control" />
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.PrimaryAddress.PostalCode)
-                                    @Html.TextBoxFor(m => m.PrimaryAddress.PostalCode, new { @class = "form-control" })
+                                    <label asp-for="PrimaryAddress.City"></label>
+                                    <input asp-for="PrimaryAddress.City" class="form-control" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.PrimaryAddress.Country)
-                                    @Html.TextBoxFor(m => m.PrimaryAddress.Country, new { @class = "form-control" })
+                                    <label asp-for="PrimaryAddress.Region"></label>
+                                    <input asp-for="PrimaryAddress.Region" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="PrimaryAddress.PostalCode"></label>
+                                    <input asp-for="PrimaryAddress.PostalCode" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="PrimaryAddress.Country"></label>
+                                    <input asp-for="PrimaryAddress.Country" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -76,7 +72,7 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
-                    }
+                    </form>
                 </div>
             </div>
         </div>

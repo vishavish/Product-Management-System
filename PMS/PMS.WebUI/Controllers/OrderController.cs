@@ -3,10 +3,7 @@ using Microsoft.Extensions.Logging;
 using PMS.Data.Repository.IRepository;
 using PMS.WebUI.Mapper;
 using PMS.WebUI.Models.OrderViewModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PMS.WebUI.Controllers
 {
@@ -27,12 +24,6 @@ namespace PMS.WebUI.Controllers
         {
             var orderModels = GetOrderModels();
             return View();
-        }
-
-        private List<OrderModel> GetOrderModels()
-        {
-            var orders = _orderService.GetSalesOrders();
-            return OrderMapper.SerializeOrdersToViewModel(orders);
         }
 
         [HttpPost]
@@ -56,6 +47,12 @@ namespace PMS.WebUI.Controllers
                 return BadRequest();
 
             return RedirectToAction(nameof(Index));
+        }
+        
+        private List<OrderModel> GetOrderModels()
+        {
+            var orders = _orderService.GetSalesOrders();
+            return OrderMapper.SerializeOrdersToViewModel(orders);
         }
     }
 }

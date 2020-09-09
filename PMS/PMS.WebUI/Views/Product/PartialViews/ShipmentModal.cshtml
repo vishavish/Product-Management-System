@@ -1,7 +1,4 @@
 ﻿@model PMS.WebUI.Models.ProductInventoryViewModel.ShipmentModel
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
 
 <div class="modal fade" id="shipmentModal" tabindex="-1" role="dialog" aria-labelledby="shipmentModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -14,8 +11,7 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    @using (Html.BeginForm("UpdateUnitsAvailable", "Inventory", FormMethod.Post))
-                    {
+                    <form asp-controller="Inventory" asp-action="UpdateUnitsAvailable" method="post">
                         <div class="form-group">
                             <label class="font-weight-bold" for="productSelect">Choose Product</label>
                             <select asp-for="Id" asp-items="Model.ProductsListItem"  class="form-control">
@@ -23,7 +19,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="font-weight-bold" for="qtyText">Quantity Received</label>
+                            <label class="font-weight-bold">Quantity Received</label>
                             <input asp-for="Adjustment" class="form-control" />
                         </div>
 
@@ -31,8 +27,7 @@
                             <button class="btn btn-primary btn-sm" type="submit">Save Received Shipment</button>
                             <button class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                         </div>
-                    }
-                </div>
+                    </form>
             </div>
         </div>
     </div>

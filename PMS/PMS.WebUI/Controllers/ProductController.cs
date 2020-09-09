@@ -32,6 +32,7 @@ namespace PMS.WebUI.Controllers
                     Value = item.Id.ToString(),
                     Text = item.Name
                 });
+
             var indexViewModels = new ProductIndexViewModel
             {
                 ProductViewModels = products,

@@ -1,5 +1,4 @@
-﻿using PMS.WebUI.Models.ProductInventoryViewModel;
-using System;
+﻿using System;
 
 namespace PMS.WebUI.Models.ProductViewModel
 {

@@ -3,10 +3,7 @@ using Microsoft.Extensions.Logging;
 using PMS.Data.Repository.IRepository;
 using PMS.WebUI.Mapper;
 using PMS.WebUI.Models.ProductInventoryViewModel;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PMS.WebUI.Controllers
 {
