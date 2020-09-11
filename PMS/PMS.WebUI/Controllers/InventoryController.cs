@@ -22,7 +22,7 @@ namespace PMS.WebUI.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult UpdateUnitsAvailable(ShipmentModel shipmentModel)

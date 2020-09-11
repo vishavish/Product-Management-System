@@ -36,7 +36,16 @@ namespace PMS.WebUI
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddRazorOptions(options => 
+                {
+                    
+                })
+                .AddRazorPagesOptions(rpopt => 
+                {
+                    rpopt.Conventions.AddPageRoute("/Pages/Order/Index", "/Invoice/New");
+                });
+
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<ICustomerService, CustomerService>();

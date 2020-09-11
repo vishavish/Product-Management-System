@@ -1,0 +1,20 @@
+﻿@page
+@model PMS.WebUI.Pages.Invoice.IndexModel
+@{
+}
+
+<div class="container">
+    <h3>Create Invoice</h3>
+    <hr />
+
+    <h4>Step 1: Select Customer</h4>
+    <label class="font-weight-bold">Choose a customer</label>
+    <select asp-for="IndexVM.CustomerId" asp-items="Model.IndexVM.CustomerList" class="form-control">
+        <option>Choose a customer</option>
+    </select>
+    <hr />
+
+    <div>
+        <button type="button" class="btn btn-primary">Next</button>
+    </div>
+</div>

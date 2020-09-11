@@ -56,7 +56,8 @@
                     <a asp-area="" asp-controller="Customer" asp-action="Index">Manage Customers</a>
                 </li>
                 <li>
-                    <a asp-controller="" asp-action="">New Invoice</a>
+                    @*<a asp-controller="" asp-action="">New Invoice</a>*@
+                    <a asp-page="/Invoice/Index">New Invoice</a>
                 </li>
                 <li>
                     <a asp-controller="Order" asp-action="Index">Orders</a>

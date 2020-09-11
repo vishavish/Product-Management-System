@@ -43,7 +43,7 @@ namespace PMS.WebUI.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost]
+        [HttpDelete]
         public IActionResult DeleteCustomer(int id)
         {
             _logger.LogInformation("Deleting a customer...");

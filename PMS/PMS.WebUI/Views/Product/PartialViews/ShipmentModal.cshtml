@@ -13,7 +13,7 @@
                 <div class="container-fluid">
                     <form asp-controller="Inventory" asp-action="UpdateUnitsAvailable" method="post">
                         <div class="form-group">
-                            <label class="font-weight-bold" for="productSelect">Choose Product</label>
+                            <label class="font-weight-bold">Choose Product</label>
                             <select asp-for="Id" asp-items="Model.ProductsListItem"  class="form-control">
                                 <option>Choose a product</option>
                             </select>
