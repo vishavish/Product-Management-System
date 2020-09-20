@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -33,6 +31,18 @@ namespace PMS.WebUI.Pages.Invoice
                     Value = customer.Id.ToString(),
                     Text = customer.FirstName + " " + customer.LastName
                 }).ToList();
+        }
+
+        public IActionResult OnPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToPage("Index");
+            }
+
+            //TempDataHelper.Put(TempData, "customer", IndexVM.CustomerId);
+            TempData["CustomerId"] = IndexVM.CustomerId;
+            return RedirectToPage("ProductSelection");
         }
 
         public class IndexViewModel

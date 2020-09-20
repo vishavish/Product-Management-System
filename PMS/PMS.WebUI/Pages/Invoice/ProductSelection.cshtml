@@ -1,0 +1,78 @@
+﻿@page
+@model PMS.WebUI.Pages.Invoice.ProductSelectionModel
+@{
+    ViewData["Title"] = "Create Order";
+}
+
+@using Microsoft.AspNetCore.Http;
+@using PMS.WebUI.Extensions;
+@using PMS.WebUI.Models.OrderViewModel;
+@inject IHttpContextAccessor HttpContextAccessor
+
+<div class="container">
+    <h3>Create an invoice</h3>
+    <hr />
+    <h4>Step 2: Create Order</h4>
+    <div class="container">
+        <form method="post">
+            <div class="form-group">
+                <label class="font-weight-bold">Product</label>
+                <select class="form-control" asp-for="ProductVM.Id" asp-items="Model.ProductVM.ProductList">
+                    <option>Choose a product</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold">Quantity</label>
+                <input asp-for="ProductVM.Quantity" class="form-control" />
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Add Line Item" />
+            <a asp-page="/Invoice/Index" class="btn btn-secondary">Finalize Order</a>
+        </form>
+    </div>
+
+    @if (HttpContextAccessor.HttpContext.Session.Get<List<SalesOrderItemModel>>("SalesOrderItems") != null)
+    {
+        <h4>Running Total: </h4>
+    }
+    <hr />
+
+    <table class="table table-responsive-md table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>Product</th>
+                <th>Description</th>
+                <th>Qty.</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>  
+        <tbody>
+            @if (HttpContextAccessor.HttpContext.Session.Get<List<SalesOrderItemModel>>("SalesOrderItems") != null)
+            {
+                foreach (var item in HttpContextAccessor.HttpContext.Session.Get<List<SalesOrderItemModel>>("SalesOrderItems"))
+                {
+                    decimal subTotal = item.Quantity * item.Product.Price;
+
+                    <tr>
+                        <td>
+                            @item.Product.Name
+                        </td>
+                        <td>
+                            @item.Product.Description
+                        </td>
+                        <td>
+                            @item.Quantity
+                        </td>
+                        <td>
+                            @item.Product.Price
+                        </td>
+                        <td>
+                            @subTotal
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
