@@ -33,7 +33,7 @@ namespace PMS.WebUI.Pages.Invoice
                 }).ToList();
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPostAddLineItem()
         {
             if (!ModelState.IsValid)
             {
@@ -58,6 +58,11 @@ namespace PMS.WebUI.Pages.Invoice
             }
 
             return RedirectToPage("ProductSelection");
+        }
+
+        public IActionResult OnPostFinalizeOrder()
+        {
+            return Page();
         }
 
         private void AddItemToList(SalesOrderItemModel soModel)

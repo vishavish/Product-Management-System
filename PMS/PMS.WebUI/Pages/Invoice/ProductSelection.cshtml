@@ -26,8 +26,8 @@
                 <input asp-for="ProductVM.Quantity" class="form-control" />
             </div>
 
-            <input type="submit" class="btn btn-primary" value="Add Line Item" />
-            <a asp-page="/Invoice/Index" class="btn btn-secondary">Finalize Order</a>
+            <input asp-page-handler="AddLineItem" type="submit" class="btn btn-primary" value="Add Line Item" />
+            <input asp-page-handler="FinalizeOrder"  type="submit" class="btn btn-secondary" value="Finalize Order" />
         </form>
     </div>
 

@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.WebUI", "PMS.WebUI\PMS.WebUI.csproj", "{F67DFDE9-C34E-4E75-B023-2FC8067283F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PMS.WebUI", "PMS.WebUI\PMS.WebUI.csproj", "{F67DFDE9-C34E-4E75-B023-2FC8067283F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.Models", "PMS.Models\PMS.Models.csproj", "{FBF7C4AA-A899-4E61-8AF6-EEB30952E11F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PMS.Models", "PMS.Models\PMS.Models.csproj", "{FBF7C4AA-A899-4E61-8AF6-EEB30952E11F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.Data", "PMS.Data\PMS.Data.csproj", "{79836812-DF93-4846-A627-DA086B33C064}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PMS.Data", "PMS.Data\PMS.Data.csproj", "{79836812-DF93-4846-A627-DA086B33C064}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
